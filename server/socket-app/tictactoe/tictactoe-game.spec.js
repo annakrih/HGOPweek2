@@ -91,7 +91,7 @@ fdescribe('join game command', function () {
     });
 
 
-    it('should emit game joined event...', function () {
+    fit('should emit game joined event...', function () {
 
         given = [{
             type: "GameCreated",
@@ -100,10 +100,8 @@ fdescribe('join game command', function () {
             },
             name: "TheFirstGame",
             timeStamp: "2014-12-02T11:29:29"
-        }
-        ];
-        when =
-            {
+        }];
+        when = {
                 type: "JoinGame",
                 user: {
                     userName: "Gummi"
