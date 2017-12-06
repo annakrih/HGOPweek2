@@ -1,4 +1,4 @@
-# Test examples
+# Test examples :bowtie:
 
 ## Feature: Create game
 
@@ -23,14 +23,14 @@
 
 ## Feature: Place move
 
-**Scenario: First move in game made** 
+**Scenario: First move in game made**  
 *Given* a user Anna has made a game  
     and another user Begga has joined the game.  
 *When* Anna makes a move, putting a X in cell nr. 0.  
 *Then* cell nr. 0 should have X,  
     and other cells should be empty.  
 
-**Scenario: Making a move on an occupied cell** 
+**Scenario: Making a move on an occupied cell**  
 *Given* a user Anna has made a game  
     and another user Begga has joined the game,  
     and Anna has made a move, putting an X in cell nr. 0  
