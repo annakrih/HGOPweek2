@@ -28,7 +28,6 @@ module.exports = function(injected){
 
                     },
                     "JoinGame": function (cmd) {
-                        console.log(gameState)
                         if(gameState.gameFull()) {
                             applyEvents( [{
                                 gameId: cmd.gameId,

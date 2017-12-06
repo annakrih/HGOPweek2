@@ -73,7 +73,7 @@ describe('create game command', function() {
 });
 
 
-fdescribe('join game command', function () {
+describe('join game command', function () {
 
 
     let given, when, then;
