@@ -39,6 +39,17 @@ module.exports = function(injected){
                             });
                         }
                     }
+
+                    if(gameState.symbolAt(1,1) != '' &&gameState.symbolAt(1,1) == gameState.symbolAt(0,0) && gameState.symbolAt(1,1) == gameState.symbolAt(2,2))
+                    {
+                        events.push({
+                            gameId: cmd.gameId,
+                            type: "GameWon",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp
+                        });
+                    }
                     eventHandler(events);
                 }
 
