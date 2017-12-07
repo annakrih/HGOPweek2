@@ -1,4 +1,5 @@
-# Test examples :bowtie:
+# Test examples :eyes:
+*Some details that do not change the function of the test, such as names and the cell moves made by the player who was not supposed to win, were not made the same in the actual tests* 
 
 ## Feature: Create game
 
