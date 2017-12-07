@@ -955,4 +955,98 @@ describe('make move command', function() {
         ];
     })
 
+    it('should return MovePlaced and GameWon when game is won by diagonal line 1', function() {
+        
+        given = [
+            {
+                type: "GameCreated",
+                user: {
+                    userName: "Anna"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:29:29",
+                side:'X'
+            },
+            {
+                type: "GameJoined",
+                user: {
+                    userName: "Tota"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:30:29",
+                side: 'O'
+            },
+            {
+                type:"MovePlaced",
+                user: {
+                    userName: "Anna"
+                },
+                place: [2,0],
+                side: 'X',
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:36:12",
+            },
+            {
+                type:"MovePlaced",
+                user: {
+                    userName: "Tota"
+                },
+                place: [1,0],
+                side: 'O',
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:37:12",
+            },
+            {
+                type:"MovePlaced",
+                user: {
+                    userName: "Anna"
+                },
+                place: [1,1],
+                side: 'X',
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:38:12",
+            },
+            {
+                type:"MovePlaced",
+                user: {
+                    userName: "Tota"
+                },
+                place: [2,1],
+                side: 'O',
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:39:12",
+            }
+        ];
+        when = {
+                type: "PlaceMove",
+                user: {
+                    userName: "Anna"
+                },
+                name: "TheFirstGame",
+                place: [0,2],
+                timeStamp: "2014-12-02T11:41:12",
+                side: 'X'
+        };
+        then = [
+            {
+                type:"MovePlaced",
+                user: {
+                    userName: "Anna"
+                },
+                place: [0,2],
+                side: 'X',
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:41:12"
+            },
+            {
+                type: "GameWon",
+                user: {
+                    userName: "Anna"
+                },
+                name: "TheFirstGame",
+                timeStamp: "2014-12-02T11:41:12"
+            }
+        ];
+    })
+
 });

@@ -50,6 +50,18 @@ module.exports = function(injected){
                             timeStamp: cmd.timeStamp
                         });
                     }
+
+                    if(gameState.symbolAt(1,1) != '' &&gameState.symbolAt(1,1) == gameState.symbolAt(2,0) && gameState.symbolAt(1,1) == gameState.symbolAt(0,2))
+                    {
+                        events.push({
+                            gameId: cmd.gameId,
+                            type: "GameWon",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp
+                        });
+                    }
+
                     eventHandler(events);
                 }
 
