@@ -11,15 +11,18 @@ module.exports = function(injected){
                 function applyEvents(events, moreEvents){
                     gameState.processEvents(events);
 
-                    if(gameState.symbolAt(0,0) != '' &&gameState.symbolAt(0,0) == gameState.symbolAt(1,0) && gameState.symbolAt(0,0) == gameState.symbolAt(2,0))
+                    for (var i = 0; i <=2; i++)
                     {
-                        events.push({
-                            gameId: cmd.gameId,
-                            type: "GameWon",
-                            user: cmd.user,
-                            name: cmd.name,
-                            timeStamp: cmd.timeStamp
-                        });
+                        if(gameState.symbolAt(0,i) != '' &&gameState.symbolAt(0,i) == gameState.symbolAt(1,i) && gameState.symbolAt(0,i) == gameState.symbolAt(2,i))
+                        {
+                            events.push({
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp
+                            });
+                        }
                     }
 
                     eventHandler(events);
