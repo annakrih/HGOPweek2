@@ -284,7 +284,7 @@ describe('make move command', function() {
     
         })
 
-        it('should return MovePlaced and GameWon when game is won by first horizontal line', function() {
+        it('should return MovePlaced and GameWon when game is won by top horizontal line', function() {
             given = [
                 {
                     type: "GameCreated",
@@ -454,6 +454,104 @@ describe('make move command', function() {
                     type: "GameWon",
                     user: {
                         userName: "Anna"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:41:12"
+                }
+            ];
+    
+        })
+
+        it('should return MovePlaced and GameWon when game is won by bottom horizontal line', function() {
+            given = [
+                {
+                    type: "GameCreated",
+                    user: {
+                        userName: "Anna"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:29:29",
+                    side:'X'
+                },
+                {
+                    type: "GameJoined",
+                    user: {
+                        userName: "Tota"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:30:29",
+                    side: 'O'
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Anna"
+                    },
+                    place: [0,1],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:36:12",
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Tota"
+                    },
+                    place: [0,2],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:37:12",
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Anna"
+                    },
+                    place: [1,0],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:38:12",
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Tota"
+                    },
+                    place: [1,2],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:39:12",
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Anna"
+                    },
+                    place: [0,0],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:39:40",
+                },
+            ];
+            when = {
+                    type: "PlaceMove",
+                    user: {
+                        userName: "Tota"
+                    },
+                    name: "TheFirstGame",
+                    place: [2,2],
+                    timeStamp: "2014-12-02T11:41:12",
+                    side: 'O'
+            };
+            then = [
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Tota"
+                    },
+                    place: [2,2],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:41:12"
+                },
+                {
+                    type: "GameWon",
+                    user: {
+                        userName: "Tota"
                     },
                     name: "TheFirstGame",
                     timeStamp: "2014-12-02T11:41:12"
