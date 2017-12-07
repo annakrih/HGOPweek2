@@ -16,7 +16,7 @@ module.exports = function (injected) {
             if (event.type==="MovePlaced") {
                 var x = event.place[0];
                 var y = event.place[1];
-                board[x][y] = event.symbol;
+                board[x][y] = event.side;
             }
 
             if (event.type==="GameJoined") {

@@ -11,6 +11,7 @@ module.exports = function(injected){
                 function applyEvents(events, moreEvents){
                     gameState.processEvents(events);
 
+                    //checking horizontal win conditions
                     for (var i = 0; i <=2; i++)
                     {
                         if(gameState.symbolAt(0,i) != '' &&gameState.symbolAt(0,i) == gameState.symbolAt(1,i) && gameState.symbolAt(0,i) == gameState.symbolAt(2,i))
@@ -24,7 +25,20 @@ module.exports = function(injected){
                             });
                         }
                     }
-
+                    //checking vertical win conditions
+                    for (var i = 0; i <=2; i++)
+                    {
+                        if(gameState.symbolAt(i,0) != '' &&gameState.symbolAt(i,0) == gameState.symbolAt(i,1) && gameState.symbolAt(i,0) == gameState.symbolAt(i,2))
+                        {
+                            events.push({
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp
+                            });
+                        }
+                    }
                     eventHandler(events);
                 }
 
@@ -79,7 +93,7 @@ module.exports = function(injected){
                                 type:"MovePlaced",
                                 user: cmd.user,
                                 place: cmd.place,
-                                symbol: cmd.symbol,
+                                side: cmd.side,
                                 name: cmd.name,
                                 timeStamp: cmd.timeStamp,
                             }])
@@ -90,7 +104,7 @@ module.exports = function(injected){
                                 type:"IllegalMove",
                                 user: cmd.user,
                                 place: cmd.place,
-                                symbol: cmd.symbol,
+                                side: cmd.side,
                                 name: cmd.name,
                                 timeStamp: cmd.timeStamp,
                             }])
