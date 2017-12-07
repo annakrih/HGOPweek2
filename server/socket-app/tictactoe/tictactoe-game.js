@@ -58,19 +58,30 @@ module.exports = function(injected){
                         }]);
                     },
                     "PlaceMove": function(cmd){
-
-
-                        // Check here for conditions which prevent command from altering state
-
-                        applyEvents([{
-                            gameId: cmd.gameId,
-                            type:"MovePlaced",
-                            user: cmd.user,
-                            place: cmd.place,
-                            symbol: cmd.symbol,
-                            name: cmd.name,
-                            timeStamp: cmd.timeStamp,
-                        }])
+                        var x = cmd.place[0];
+                        var y = cmd.place[1];
+                        if (gameState.symbolAt(x,y)==='') {
+                            applyEvents([{
+                                gameId: cmd.gameId,
+                                type:"MovePlaced",
+                                user: cmd.user,
+                                place: cmd.place,
+                                symbol: cmd.symbol,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                            }])
+                        } 
+                        else {
+                            applyEvents([{
+                                gameId: cmd.gameId,
+                                type:"IllegalMove",
+                                user: cmd.user,
+                                place: cmd.place,
+                                symbol: cmd.symbol,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp,
+                            }])
+                        } 
                     },
                     "RequestGameHistory": function(cmd){
                         // Game does not handle this query command, is declared here for making tests more robust.

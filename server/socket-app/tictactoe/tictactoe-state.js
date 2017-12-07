@@ -40,6 +40,7 @@ module.exports = function (injected) {
         processEvents(history);
 
         return {
+            symbolAt: symbolAt,
             gameFull:gameFull,
             processEvents: processEvents,
         }

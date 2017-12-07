@@ -229,5 +229,59 @@ describe('make move command', function() {
     
         })
 
-
+        it('should return IllegalMove when making a move on an occupied cell', function(){
+            
+                    given = [
+                        {
+                            type: "GameCreated",
+                            user: {
+                                userName: "Anna"
+                            },
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:29:29",
+                            side:'X'
+                        },
+                        {
+                            type: "GameJoined",
+                            user: {
+                                userName: "Tota"
+                            },
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:30:29",
+                            side: 'O'
+                        },
+                        {
+                            type:"MovePlaced",
+                            user: {
+                                userName: "Anna"
+                            },
+                            place: [0,0],
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:31:12",
+                        }
+                    
+                    ];
+                    when = {
+                            type: "PlaceMove",
+                            user: {
+                                userName: "Tota"
+                            },
+                            name: "TheFirstGame",
+                            place: [0,0],
+                            timeStamp: "2014-12-02T11:32:12",
+                            side: 'O'
+                        };
+                    then = [
+                        {
+                            type:"IllegalMove",
+                            user: {
+                                userName: "Tota"
+                            },
+                            place: [0,0],
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:32:12",
+                        }
+                    ];
+            
+                })
     });
