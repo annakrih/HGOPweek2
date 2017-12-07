@@ -166,7 +166,6 @@ describe('join game command', function () {
 
 describe('make move command', function() {
     
-    
         let given, when, then;
     
         beforeEach(function(){
@@ -230,6 +229,62 @@ describe('make move command', function() {
         })
 
         it('should return IllegalMove when making a move on an occupied cell', function(){
+    
+            given = [
+                {
+                    type: "GameCreated",
+                    user: {
+                        userName: "Anna"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:29:29",
+                    side:'X'
+                },
+                {
+                    type: "GameJoined",
+                    user: {
+                        userName: "Tota"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:30:29",
+                    side: 'O'
+                },
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Anna"
+                    },
+                    place: [0,0],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:31:12",
+                }
+            
+            ];
+            when = {
+                    type: "PlaceMove",
+                    user: {
+                        userName: "Tota"
+                    },
+                    name: "TheFirstGame",
+                    place: [0,0],
+                    timeStamp: "2014-12-02T11:32:12",
+                    side: 'O'
+                };
+            then = [
+                {
+                    type:"IllegalMove",
+                    user: {
+                        userName: "Tota"
+                    },
+                    place: [0,0],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:32:12",
+                }
+            ];
+    
+        })
+
+        it('should return MovePlaced and GameWon when game is won by first horizontal line', function(){
             
                     given = [
                         {
@@ -257,29 +312,63 @@ describe('make move command', function() {
                             },
                             place: [0,0],
                             name: "TheFirstGame",
-                            timeStamp: "2014-12-02T11:31:12",
+                            timeStamp: "2014-12-02T11:36:12",
+                        },
+                        {
+                            type:"MovePlaced",
+                            user: {
+                                userName: "Tota"
+                            },
+                            place: [0,1],
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:37:12",
+                        },
+                        {
+                            type:"MovePlaced",
+                            user: {
+                                userName: "Anna"
+                            },
+                            place: [1,0],
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:38:12",
+                        },
+                        {
+                            type:"MovePlaced",
+                            user: {
+                                userName: "Tota"
+                            },
+                            place: [0,2],
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:39:12",
                         }
-                    
                     ];
                     when = {
                             type: "PlaceMove",
                             user: {
-                                userName: "Tota"
+                                userName: "Anna"
                             },
                             name: "TheFirstGame",
-                            place: [0,0],
-                            timeStamp: "2014-12-02T11:32:12",
-                            side: 'O'
+                            place: [2,0],
+                            timeStamp: "2014-12-02T11:41:12",
+                            side: 'X'
                         };
                     then = [
                         {
-                            type:"IllegalMove",
+                            type:"MovePlaced",
                             user: {
-                                userName: "Tota"
+                                userName: "Anna"
                             },
-                            place: [0,0],
+                            place: [2,0],
                             name: "TheFirstGame",
-                            timeStamp: "2014-12-02T11:32:12",
+                            timeStamp: "2014-12-02T11:41:12"
+                        },
+                        {
+                            type: "GameWon",
+                            user: {
+                                userName: "Anna"
+                            },
+                            name: "TheFirstGame",
+                            timeStamp: "2014-12-02T11:41:12"
                         }
                     ];
             

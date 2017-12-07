@@ -11,7 +11,17 @@ module.exports = function(injected){
                 function applyEvents(events, moreEvents){
                     gameState.processEvents(events);
 
-                    // Check here for game state that may result in additional events
+                    if(gameState.symbolAt(0,0) != '' &&gameState.symbolAt(0,0) == gameState.symbolAt(1,0) && gameState.symbolAt(0,0) == gameState.symbolAt(2,0))
+                    {
+                        events.push({
+                            gameId: cmd.gameId,
+                            type: "GameWon",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp
+                        });
+                    }
+
                     eventHandler(events);
                 }
 
