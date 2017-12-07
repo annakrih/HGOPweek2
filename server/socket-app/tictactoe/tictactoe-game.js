@@ -40,28 +40,29 @@ module.exports = function(injected){
                         }
                     }
 
-                    if(gameState.symbolAt(1,1) != '' &&gameState.symbolAt(1,1) == gameState.symbolAt(0,0) && gameState.symbolAt(1,1) == gameState.symbolAt(2,2))
-                    {
-                        events.push({
-                            gameId: cmd.gameId,
-                            type: "GameWon",
-                            user: cmd.user,
-                            name: cmd.name,
-                            timeStamp: cmd.timeStamp
-                        });
-                    }
+                    //checking for diagonal win conditions
+                    if(gameState.symbolAt(1,1) != '') {
+                        if (gameState.symbolAt(1,1) == gameState.symbolAt(0,0) && gameState.symbolAt(1,1) == gameState.symbolAt(2,2)) {
+                            events.push({
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp
+                            });
+                        }
 
-                    if(gameState.symbolAt(1,1) != '' &&gameState.symbolAt(1,1) == gameState.symbolAt(2,0) && gameState.symbolAt(1,1) == gameState.symbolAt(0,2))
-                    {
-                        events.push({
-                            gameId: cmd.gameId,
-                            type: "GameWon",
-                            user: cmd.user,
-                            name: cmd.name,
-                            timeStamp: cmd.timeStamp
-                        });
+                        if(gameState.symbolAt(1,1) == gameState.symbolAt(2,0) && gameState.symbolAt(1,1) == gameState.symbolAt(0,2))
+                        {
+                            events.push({
+                                gameId: cmd.gameId,
+                                type: "GameWon",
+                                user: cmd.user,
+                                name: cmd.name,
+                                timeStamp: cmd.timeStamp
+                            });
+                        }
                     }
-
                     eventHandler(events);
                 }
 

@@ -955,7 +955,7 @@ describe('make move command', function() {
         ];
     })
 
-    it('should return MovePlaced and GameWon when game is won by diagonal line 1', function() {
+    it('should return MovePlaced and GameWon when game is won by diagonal line 2', function() {
         
         given = [
             {
