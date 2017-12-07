@@ -62,8 +62,15 @@ module.exports = function(injected){
 
                         // Check here for conditions which prevent command from altering state
 
-
-
+                        applyEvents([{
+                            gameId: cmd.gameId,
+                            type:"MovePlaced",
+                            user: cmd.user,
+                            place: cmd.place,
+                            symbol: cmd.symbol,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp,
+                        }])
                     },
                     "RequestGameHistory": function(cmd){
                         // Game does not handle this query command, is declared here for making tests more robust.

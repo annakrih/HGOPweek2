@@ -164,3 +164,70 @@ describe('join game command', function () {
     });
 });
 
+describe('make move command', function() {
+    
+    
+        let given, when, then;
+    
+        beforeEach(function(){
+            given=undefined;
+            when=undefined;
+            then=undefined;
+        });
+    
+        afterEach(function () {
+            tictactoe(given).executeCommand(when, function(actualEvents){
+                should(JSON.stringify(actualEvents)).be.exactly(JSON.stringify(then));
+            });
+        });
+    
+    
+        it('should return MovePlaced event when the cell being placed is empty', function(){
+    
+            given = [
+                {
+                    type: "GameCreated",
+                    user: {
+                        userName: "Anna"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:29:29",
+                    side:'X'
+                },
+                {
+                    type: "GameJoined",
+                    user: {
+                        userName: "Tota"
+                    },
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:30:29",
+                    side: 'O'
+                }
+            
+            ];
+            when = {
+                    type: "PlaceMove",
+                    user: {
+                        userName: "Anna"
+                    },
+                    name: "TheFirstGame",
+                    place: [0,0],
+                    timeStamp: "2014-12-02T11:31:12",
+                    side: 'X'
+                };
+            then = [
+                {
+                    type:"MovePlaced",
+                    user: {
+                        userName: "Anna"
+                    },
+                    place: [0,0],
+                    name: "TheFirstGame",
+                    timeStamp: "2014-12-02T11:31:12",
+                }
+            ];
+    
+        })
+
+
+    });
