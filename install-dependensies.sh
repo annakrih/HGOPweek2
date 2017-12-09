@@ -5,9 +5,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 #installing nodejs
-echo '-- Installing node js'
-$ env VERSION=`python tools/getnodeversion.py` make install DESTDIR=`nvm_version_path v$VERSION` PREFIX=""
-$ nvm use 6.9.1
+echo '-- Installing node js' 
+env VERSION=`python tools/getnodeversion.py` make install DESTDIR=`nvm_version_path v$VERSION` PREFIX=""
+nvm use 6.9.1
 PATH=./node_modules/.bin:$PATH #adding to PATH
 
 #installing nodemon
