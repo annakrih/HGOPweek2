@@ -11,7 +11,7 @@ node {
 
         echo 'Building docker container'
 
-        echo 'Pushing docker image'  // with git commit as tag
+        echo 'Pushing docker image'  
 
     }
     stage('Test') {
