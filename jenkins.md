@@ -39,8 +39,14 @@ From the [Jenkins instance page]( ec2-52-30-173-36.eu-west-1.compute.amazonaws.c
     * `Add`
 Now you can make the pipeline pull from the repository by clicking the pipeline and then `Build now`. 
 
+### Webhook with Github
+Various methods and tutorials were tried to get a webhook from Github to work. It now works, so that when Jenkin's recieves a push notification from Github about a commit, it pulls that commit and starts the pipeline. The main changes made to get this to work were:
+* Under the pipeline configuration
+    * Under the tab `General` the `GitHub project` option was checked and the github URL added
+    * Under `Build Triggers` the `GitHub hook trigger for GITScm polling` was checked
+
 ### The rest
-After this the pipeline was working, but work began on the Jenkinsfile. 
+The build pipeline now installs some more dependencies for the project
 
 
 ## The Jenkins instance 
