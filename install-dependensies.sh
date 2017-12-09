@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #installing nvm
 echo '-- Installing nvm'
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
@@ -7,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 #installing nodejs
 echo '-- Installing node js' 
 env VERSION=`python tools/getnodeversion.py` make install DESTDIR=`nvm_version_path v$VERSION` PREFIX=""
-nvm install 6.9.1
+nvm install node 6.9.1
 nvm use 6.9.1
 PATH=./node_modules/.bin:$PATH #adding to PATH
 
