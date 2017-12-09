@@ -3,7 +3,7 @@ node {
     stage('Build') {
         echo 'Building......' 
         echo 'Installing dependencies'
-        ./install-dependensies.sh
+        sh "./install-dependensies.sh"
 
         echo 'Runnig tests'
 
