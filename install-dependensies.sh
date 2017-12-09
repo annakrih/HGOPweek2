@@ -15,3 +15,8 @@ PATH=./node_modules/.bin:$PATH #adding to PATH
 echo '-- Installing nodemon'
 npm install -g nodemon
 
+# Start new posgres container from postgres docker container
+npm run startpostgres && sleep 10 && npm run migratedb
+# Install npm dependencies
+npm install
+

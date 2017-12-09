@@ -7,6 +7,9 @@ node {
 
         echo 'Runnig tests'
 
+        sh "npm run startserver"
+        sh "npm run tests"
+
         echo 'Building app'
 
         echo 'Building docker container'
