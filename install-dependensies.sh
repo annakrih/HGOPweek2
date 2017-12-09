@@ -25,5 +25,3 @@ npm install -g nodemon
 echo '-- Starting new postgres container'
 npm run startpostgres && sleep 10 && npm run migratedb
 
-echo '-- npm run build --------'
-npm run build
