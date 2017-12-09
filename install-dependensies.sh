@@ -14,6 +14,7 @@ nvm use 6.9.1
 PATH=./node_modules/.bin:$PATH #adding to PATH
 
 # installing npm dependencies
+echo '-----------NPM INSTALL ----------'
 npm install
 #installing nodemon
 echo '-- Installing nodemon'
