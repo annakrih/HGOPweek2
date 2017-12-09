@@ -7,8 +7,7 @@ node {
 
         echo 'Runnig tests'
 
-        sh "npm run startserver"
-        sh "npm run tests"
+        sh "npm install"
 
         echo 'Building app'
 

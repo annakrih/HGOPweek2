@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 #installing nvm
 echo '-- Installing nvm'
@@ -20,5 +20,4 @@ npm install -g nodemon
 # Start new posgres container from postgres docker container
 npm run startpostgres && sleep 10 && npm run migratedb
 # Install npm dependencies
-npm install
 
