@@ -7,6 +7,7 @@ node {
 
         echo 'Runnig tests'
 
+
         sh "npm install"
         echo 'Building app'
 
