@@ -21,3 +21,5 @@ npm install -g nodemon
 npm run startpostgres && sleep 10 && npm run migratedb
 # Install npm dependencies
 
+sudo npm install
+sudo npm run build
