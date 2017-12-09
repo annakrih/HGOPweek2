@@ -44,6 +44,7 @@ Various methods and tutorials were tried to get a webhook from Github to work. I
 * Under the pipeline configuration
     * Under the tab `General` the `GitHub project` option was checked and the github URL added
     * Under `Build Triggers` the `GitHub hook trigger for GITScm polling` was checked
+* Under the GitHub project settings a webhook was added, as well as a Jenkins Service (under Integrations&Services)
 
 ### The rest
 The build pipeline now installs some more dependencies for the project
