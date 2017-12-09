@@ -13,13 +13,13 @@ nvm install node 6.9.1
 nvm use 6.9.1
 PATH=./node_modules/.bin:$PATH #adding to PATH
 
+# installing npm dependencies
+npm install
 #installing nodemon
 echo '-- Installing nodemon'
 npm install -g nodemon
 
 # Start new posgres container from postgres docker container
 npm run startpostgres && sleep 10 && npm run migratedb
-# Install npm dependencies
 
-sudo npm install
-sudo npm run build
+npm run build
