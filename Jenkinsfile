@@ -1,23 +1,25 @@
-node {
+node {    
     checkout scm
-    stage('Build') {
-        echo 'Building......' 
-        echo 'Installing dependencies'
-        sh "./install-dependensies.sh"
-
-        echo 'Runnig tests'
-
-        echo 'Building app'
-
-        echo 'Building docker container'
-
-        echo 'Pushing docker image'  
-
+    stage('Clean') {
+        // Clean files from last build.
+        sh 'git clean -dfxq'
+    }
+    stage('Setup') {
+        // Prefer yarn over npm.
+        sh 'yarn install || npm install'
+        dir('client')
+        {
+            sh 'yarn install || npm install'
+        }
     }
     stage('Test') {
-        echo 'Testing......'
+        sh 'npm run test:nowatch'
     }
     stage('Deploy') {
-        echo 'Deploying......'
+        sh './dockerbuild.sh'
+        dir('./provisioning')
+        {
+            sh "./provision-new-environment.sh"
+        }
     }
 }
