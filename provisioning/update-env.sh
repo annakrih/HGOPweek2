@@ -15,7 +15,7 @@ echo Deploy revision ${GIT_COMMIT} to http://${INSTANCE_PUBLIC_NAME}
 echo SCP
 
 status='unknown'
-while [ ! "${status}" == "ok" ]
+while [ ! "${status}" == "ok" || "${status}" == "unknown" ]
 do
    echo Checking status of host, currently ${status}
    status=$(ssh -i "~/aws/${SECURITY_GROUP_NAME}.pem"  -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=5 ec2-user@${INSTANCE_PUBLIC_NAME} echo ok 2>&1)
