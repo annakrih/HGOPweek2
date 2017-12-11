@@ -24,4 +24,8 @@ sudo yum install git -y
 
 sudo service jenkins start
 
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
+sudo yum -y install yarn
+
 touch ec2-init-done.markerfile
