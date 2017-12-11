@@ -6,6 +6,7 @@ node {
     }
     stage('Setup') {
         // Prefer yarn over npm.
+        sh 'sudo yum install yarn'
         sh 'yarn install || npm install'
         dir('client')
         {
