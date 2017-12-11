@@ -9,6 +9,7 @@ sudo yum -y remove java-1.7.0-openjdk
 sudo yum -y install java-1.8.0
 
 sudo yum -y install docker
+sudo yum -y install git
 
 sudo service docker start
 sudo usermod -a -G docker ec2-user
@@ -20,12 +21,6 @@ sudo yum -y install gcc-c++ make
 sudo yum install jenkins -y
 sudo usermod -a -G docker jenkins
 
-sudo yum install git -y
-
 sudo service jenkins start
-
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
-sudo yum -y install yarn
 
 touch ec2-init-done.markerfile
