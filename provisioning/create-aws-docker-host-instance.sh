@@ -9,7 +9,7 @@ export AMI_IMAGE_ID="ami-1a962263"
 echo No instance information present, continuing.
 [ -d ${INSTANCE_DIR} ] || mkdir ${INSTANCE_DIR}
 
-USERNAME=$(aws iam get-user --query 'User.UserName' --debug --output text)
+USERNAME=$(aws iam get-user --query 'User.UserName' --output text)
 
 SECURITY_GROUP_NAME=hgop-${USERNAME}
 
