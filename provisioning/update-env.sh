@@ -32,9 +32,6 @@ scp -o StrictHostKeyChecking=no -i "~/aws/${SECURITY_GROUP_NAME}.pem" ./docker-c
 echo "Wait for instance to be ready"
 ssh -o StrictHostKeyChecking=no -i "~/aws/${SECURITY_GROUP_NAME}.pem" ec2-user@${INSTANCE_PUBLIC_NAME} "cat ~/ec2-instance-check.sh"
 
-echo "Running docker instance init script"
-./docker-instance-init.sh
-
 echo Instance ready...going to run this:
 ssh -o StrictHostKeyChecking=no -i "~/aws/${SECURITY_GROUP_NAME}.pem" ec2-user@${INSTANCE_PUBLIC_NAME} "cat ~/docker-compose-and-run.sh"
 
