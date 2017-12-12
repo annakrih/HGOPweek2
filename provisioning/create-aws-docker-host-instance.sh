@@ -11,7 +11,7 @@ echo No instance information present, continuing.
 
 USERNAME=$(aws iam get-user --query 'User.UserName' --output text)
 
-SECURITY_GROUP_NAME=jenkins-${USERNAME}
+SECURITY_GROUP_NAME=jenkins-new-${USERNAME}
 
 echo "Using security group name ${SECURITY_GROUP_NAME}"
 
