@@ -20,7 +20,7 @@ node {
         sh 'npm run test:nowatch'
     }
     stage('API tests') {
-        sh 'npm run apitest:nowatch'
+        //sh 'npm run apitest:nowatch'
     }
     stage('Deploy') {
         sh './dockerbuild.sh'
