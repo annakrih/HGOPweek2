@@ -18,6 +18,10 @@ curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
 sudo yum -y install nodejs
 sudo yum -y install gcc-c++ make
 
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
+sudo yum install -y yarn
+
 sudo yum install jenkins -y
 sudo usermod -a -G docker jenkins
 
