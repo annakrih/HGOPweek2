@@ -20,7 +20,7 @@ describe('User chat API', function(){
         let testapi = testAPI();
         testapi.waitForCleanDatabase(
             function(){
-//                console.debug("Database has been cleared for testing");
+                console.debug("Database has been cleared for testing");
             }
         ).cleanDatabase().then(()=>{
             testapi.disconnect();
