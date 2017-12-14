@@ -11,6 +11,10 @@ node {
         {
             sh 'yarn install || npm install'
         }
+        dir('server')
+        {
+            sh 'yarn install || npm install'
+        }
     }
     stage('Test') {
         sh 'npm run test:nowatch'
