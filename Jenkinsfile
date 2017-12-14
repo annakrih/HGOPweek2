@@ -17,7 +17,8 @@ node {
         }
     }
     stage('Test') {
-        sh 'npm run test:nowatch && npm run apitest:nowatch'
+        sh 'npm run test:nowatch'
+        sh 'npm run apitest:nowatch'
 
     }
     stage('Deploy') {
