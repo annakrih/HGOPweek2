@@ -7,6 +7,7 @@ node {
     stage('Setup') {
         // Prefer yarn over npm.
         sh 'yarn install || npm install'
+        sh 'npm install nodemon -g'
         dir('client')
         {
             sh 'yarn install || npm install'
