@@ -12,7 +12,7 @@ fi
 # Remove .git from url in order to get https link to repo (assumes https url for GitHub)
 export GITHUB_URL=$(echo $GIT_URL | rev | cut -c 5- | rev)
 
-echo "Building app"
+echo Building app
 npm run build
 
 rc=$?
@@ -44,7 +44,7 @@ cp ./Dockerfile ./build/
 
 cd build
 
-echo "Building docker image"
+echo Building docker image
 
 docker build -t annakrih/tictactoe:$GIT_COMMIT .
 
