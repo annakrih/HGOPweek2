@@ -21,6 +21,7 @@ node {
     }
     stage('API tests') {
         //sh 'npm run apitest:nowatch'
+        junit '**/build/junit/*.xml'
     }
     stage('Deploy') {
         sh './dockerbuild.sh'
