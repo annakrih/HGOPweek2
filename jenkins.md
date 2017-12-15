@@ -21,11 +21,11 @@ cat .ssh/id_rsa.pub
 The ssh-key is then printed in the terminal, so it was copies and added to my GitHub account. 
 
 ### Make an account on Jenkins
-Next the [Jenkins instance page]( ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8080) was opened, which had instructions on how to find the inital administrator password, which was found by running the command `cat /var/lib/jenkins/secrets/initialAdminPassword` from the Jenkins bash. 
+Next the [Jenkins instance page]( ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8000) was opened, which had instructions on how to find the inital administrator password, which was found by running the command `cat /var/lib/jenkins/secrets/initialAdminPassword` from the Jenkins bash. 
 The on-screen-commands were followed and an account made with username hgop. 
 
 ### Pipeline made on Jenkins
-From the [Jenkins instance page]( ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8080), `create new job` was chosen. The job was made a `pipeline` and was given the name **TicTacToe-pipeline**. In the next step under the tab `Pipeline` the following options were made:
+From the [Jenkins instance page]( ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8000), `create new job` was chosen. The job was made a `pipeline` and was given the name **TicTacToe-pipeline**. In the next step under the tab `Pipeline` the following options were made:
 *  the Pipeline definition was set to `Pipeline script from SCM`
 * SCM was set as `Git`
 * Repository URL was set as `git@github.com:annakrih/HGOPweek2.git`
@@ -52,4 +52,4 @@ The build pipeline now installs some more dependencies for the project
 
 ## The Jenkins instance 
 username: hgop
-URL: ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8080
+URL: ec2-52-30-173-36.eu-west-1.compute.amazonaws.com:8000
