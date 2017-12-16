@@ -15,13 +15,12 @@ node {
         {
             sh 'yarn install || npm install'
         }
-        sh 'npm run startpostgres'
     }
     stage('Test') {
         sh 'npm run test:nowatch'
     }
-    stage('API & loadtests') {
-        sh 'npm run startserver & npm run apitest:nowatch && npm run loadtest:nowatch && sleep 5 && kill $!'
+    stage('API tests') {
+        sh 'npm run startpostgres && npm run startserver & (npm run apitest:nowatch && npm run loadtest:nowatch) && sleep 10 && kill %1'
         sh 'docker kill $(docker ps -q)'
         sh 'docker rm $(docker ps -aq)'
         junit '**/build/junit/*.xml'
