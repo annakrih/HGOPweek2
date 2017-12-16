@@ -1,12 +1,14 @@
 # Assignment - Week 3
 
-* [x] Url to your Jenkins instance 
-  * http://ec2-34-252-153-7.eu-west-1.compute.amazonaws.com:8080/
-  * login credentials submitted.
-* [x] Url to your live TicTacToe instance
-  * http://ec2-34-252-193-58.eu-west-1.compute.amazonaws.com:8000 
-* [x] Public Url to your Datadog
-  * https://p.datadoghq.com/sb/fbeb1450b-59354fa899 
+### Jenkins instance 
+ http://ec2-34-252-153-7.eu-west-1.compute.amazonaws.com:8080/
+login credentials submitted on Canvas.
+
+### live TicTacToe instance
+http://ec2-34-252-193-58.eu-west-1.compute.amazonaws.com:8000 
+
+### Public Url to Datadog dashboard
+https://p.datadoghq.com/sb/fbeb1450b-59354fa899 
 
 ## List of things you finished / did not finish (with comments):
 * [x] Completed the migrations needed for the application to work
