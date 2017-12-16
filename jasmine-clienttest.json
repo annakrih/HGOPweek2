@@ -1,0 +1,11 @@
+{
+  "spec_dir": "client/src/tictactoe",
+  "spec_files": [
+    "**/*[sS]pec.js"
+  ],
+  "helpers": [
+    "jasmine-setup.js"
+  ],
+  "stopSpecOnExpectationFailure": true,
+  "random": false
+}
