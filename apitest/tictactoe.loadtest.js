@@ -39,7 +39,7 @@ describe('Tictactoe load test', function () {
             testapi.disconnect();
             done();
         });
-    });
+    }, 3000);
 
     // This is a helper function which assists in analysing inconsistent game
     // state between players, which can easily arise if there are timing/order

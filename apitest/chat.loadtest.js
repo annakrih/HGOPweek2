@@ -18,7 +18,7 @@ const testAPI = TestAPI(inject({
 describe('User chat load test', function(){
 
 
-    let timelimit = 1000;
+    let timelimit = 10000;
 
     beforeEach(function(done){
         jasmine.DEFAULT_TIMEOUT_INTERVAL = timelimit;
@@ -27,9 +27,9 @@ describe('User chat load test', function(){
             testapi.disconnect();
             done();
         });
-    });
+    }, 30000);
 
-    const count = 21;
+    const count = 200;
 
     it('should connect and send ' + count + '  user messages within '+ timelimit +'ms',function(done){
 
