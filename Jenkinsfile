@@ -20,7 +20,7 @@ node {
         sh 'npm run test:nowatch'
     }
     stage('API tests') {
- sh 'npm run startpostgres && npm run startserver & npm run apitest:nowatch && sleep 10 && kill %1'        sh 'docker kill $(docker ps -q)'
+        sh 'npm run startpostgres && npm run startserver & npm run apitest:nowatch && sleep 10 && kill %1'        sh 'docker kill $(docker ps -q)'
         sh 'docker rm $(docker ps -aq)'
         junit '**/build/junit/*.xml'
     }
